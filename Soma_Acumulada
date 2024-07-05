@@ -1,0 +1,12 @@
+Mov Saldo Acumul = 
+    VAR vDataFinal = MAX(Dim_Calendario[Data])
+    VAR vDataInicial = CALCULATE(MIN(Ft_MovAgr[Data]),ALL(Dim_Calendario[Data]))
+    VAR vDatasRange = FILTER(ALL(Dim_Calendario), Dim_Calendario[Data] >= vDataInicial && Dim_Calendario[Data] <= vDataFinal)
+
+    VAR vResultado =     
+        CALCULATE(
+        [Mov Saldo],
+        vDatasRange
+        )
+
+    RETURN vResultado
